@@ -174,6 +174,7 @@ var NodeAdapter = Class({ className: 'NodeAdapter',
         }
 
         headers['Content-Length'] = new Buffer(body, 'utf8').length.toString();
+        headers['Connection'] = 'close';
 
         this.debug('HTTP response: ?', body);
         response.writeHead(200, headers);
