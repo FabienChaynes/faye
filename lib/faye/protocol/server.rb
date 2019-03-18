@@ -207,6 +207,7 @@ module Faye
         end
 
         @engine.connect(response['clientId'], message['advice']) do |events|
+          debug('? Faye::Server#connect executing connect block', client_id)
           callback.call([response] + events)
         end
       end
